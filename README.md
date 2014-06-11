@@ -12,6 +12,7 @@ included).
 
 There are already many implementations of the algorithm, so why did I
 write one myself?  There are a number of reasons:
+
 1. the [pseudocode on Wikipedia](http://en.wikipedia.org/wiki/Mersenne_twister#Pseudocode) suggested that it was relatively simple to implement;
 2. I never trust pseudocode on Wikipedia, so I wanted an implementation from [the original academic paper](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf); and
 3. it would have been just as easy to implement it myself than to figure out the API of someone else's ugly C code.
@@ -23,7 +24,7 @@ confidently used for cryptography.
 
 The following code will create a new random generator seeded at <code>1337</code> and print out one thousand random doubles between 0 and 1.
 
-```c
+```C
 #include <stdio.h>
 #include "mtwister.h"
 
