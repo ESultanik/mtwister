@@ -12,9 +12,9 @@ included).
 
 There are already many implementations of the algorithm, so why did I
 write one myself?  There are a number of reasons:
-# the [pseudocode on Wikipedia](http://en.wikipedia.org/wiki/Mersenne_twister#Pseudocode) suggested that it was relatively simple to implement;
-# I never trust pseudocode on Wikipedia, so I wanted an implementation from [the original academic paper](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf); and
-# it would have been just as easy to implement it myself than to figure out the API of someone else's ugly C code.
+1. the [pseudocode on Wikipedia](http://en.wikipedia.org/wiki/Mersenne_twister#Pseudocode) suggested that it was relatively simple to implement;
+2. I never trust pseudocode on Wikipedia, so I wanted an implementation from [the original academic paper](http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.pdf); and
+3. it would have been just as easy to implement it myself than to figure out the API of someone else's ugly C code.
 
 Note that this code has not been tested to a sufficient extent to be
 confidently used for cryptography.
