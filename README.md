@@ -37,3 +37,7 @@ int main() {
   return 0;
 }
 ```
+
+# License
+
+Public domain.  Have fun!
