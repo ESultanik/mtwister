@@ -15,7 +15,7 @@
 
 #include "mtwister.h"
 
-inline void m_seedRand(MTRand* rand, unsigned long seed) {
+inline static void m_seedRand(MTRand* rand, unsigned long seed) {
   /* set initial seeds to mt[STATE_VECTOR_LENGTH] using the generator
    * from Line 25 of Table 1 in: Donald Knuth, "The Art of Computer
    * Programming," Vol. 2 (2nd Ed.) pp.102.
