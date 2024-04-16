@@ -13,9 +13,10 @@
 #define TEMPERING_MASK_B	0x9d2c5680
 #define TEMPERING_MASK_C	0xefc60000
 
+#include <stdint.h>
 #include "mtwister.h"
 
-inline static void m_seedRand(MTRand* rand, unsigned long seed) {
+inline static void m_seedRand(MTRand* rand, uint32_t seed) {
   /* set initial seeds to mt[STATE_VECTOR_LENGTH] using the generator
    * from Line 25 of Table 1 in: Donald Knuth, "The Art of Computer
    * Programming," Vol. 2 (2nd Ed.) pp.102.
@@ -29,7 +30,7 @@ inline static void m_seedRand(MTRand* rand, unsigned long seed) {
 /**
 * Creates a new random number generator from a given seed.
 */
-MTRand seedRand(unsigned long seed) {
+MTRand seedRand(uint32_t seed) {
   MTRand rand;
   m_seedRand(&rand, seed);
   return rand;
@@ -38,13 +39,13 @@ MTRand seedRand(unsigned long seed) {
 /**
  * Generates a pseudo-randomly generated long.
  */
-unsigned long genRandLong(MTRand* rand) {
+uint32_t genRandLong(MTRand* rand) {
 
-  unsigned long y;
-  static unsigned long mag[2] = {0x0, 0x9908b0df}; /* mag[x] = x * 0x9908b0df for x = 0,1 */
+  uint32_t y;
+  static uint32_t mag[2] = {0x0, 0x9908b0df}; /* mag[x] = x * 0x9908b0df for x = 0,1 */
   if(rand->index >= STATE_VECTOR_LENGTH || rand->index < 0) {
     /* generate STATE_VECTOR_LENGTH words at a time */
-    int kk;
+    int32_t kk;
     if(rand->index >= STATE_VECTOR_LENGTH+1 || rand->index < 0) {
       m_seedRand(rand, 4357);
     }
@@ -72,5 +73,5 @@ unsigned long genRandLong(MTRand* rand) {
  * Generates a pseudo-randomly generated double in the range [0..1].
  */
 double genRand(MTRand* rand) {
-  return((double)genRandLong(rand) / (unsigned long)0xffffffff);
+  return((double)genRandLong(rand) / (uint32_t)0xffffffff);
 }
